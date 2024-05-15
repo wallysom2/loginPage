@@ -49,36 +49,55 @@ const LoginPage = () => {
 
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center">
-      <div className="flex h-[534px] w-[438px] flex-col items-center space-y-0 rounded-tl-lg p-[55px] pb-[40.13px] pl-[25.88px] pt-[26.25px] shadow-2xl shadow-md">
+      <div
+        className="flex h-[534px] w-[438px] flex-col items-center rounded-[18px]"
+        style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
+      >
         <img
           src={b2bitLogo}
           alt="B2Bit Logo"
-          className="relative -left-2 top-[10.59px] h-[94.81px] w-[309.6px]"
+          className="relative h-[94.81px] w-[309.6px]"
         />{' '}
-        <div className="flex flex-col items-center">
+        <div className="left-[25.88px] top-[205.88px] flex h-[288px] w-[385.88px] flex-col items-center gap-0 rounded-tl-[9px]">
           <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={LoginSchema}
             onSubmit={handleSubmit}
           >
             {({ isSubmitting, errors }) => (
-              <Form className="mb-4 rounded bg-white px-8 pb-8 pt-6 ">
+              <Form className="mb-4 h-[54.25px] w-[385.88px] gap-[13.5px] rounded-tl-[9px] p-[18px] pb-[20.25px]">
+                {' '}
+                <label
+                  htmlFor="email"
+                  className="font-nunito text-left text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
+                >
+                  {' '}
+                  Email{' '}
+                </label>
                 <Field
                   type="email"
                   name="email"
-                  className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                  placeholder="@gmail.com"
+                  className="focus:shadow-outline h-[54.25px] w-[385.88px] gap-[13.5px] rounded-[9px] bg-[rgba(241,241,241,1)] p-[18px] pb-[20.25px] text-gray-700 shadow focus:outline-none"
                 />
                 <ErrorMessage name="email" component="div" />
+                <label
+                  htmlFor="password"
+                  className="font-nunito text-left text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
+                >
+                  Password
+                </label>
                 <Field
                   type="password"
                   name="password"
-                  className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+                  placeholder="************"
+                  className="focus:shadow-outline h-[54.25px] w-[385.88px] gap-[13.5px] rounded-[9px] bg-[rgba(241,241,241,1)] p-[18px] pb-[20.25px] text-gray-700 shadow focus:outline-none"
                 />
                 <ErrorMessage name="password" component="div" />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+                  className="focus:shadow-outline font-nunito h-[54px] w-[385.88px] rounded-[9px] bg-[rgba(2,39,79,1)] text-center text-[18px] font-semibold text-[rgba(250,250,250,1)] transition duration-300 ease-out hover:bg-blue-700 focus:outline-none"
                 >
                   Entrar
                 </button>
