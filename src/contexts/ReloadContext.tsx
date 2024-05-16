@@ -13,6 +13,7 @@ interface ReloadContextType {
 
 const ReloadContext = createContext<ReloadContextType>({
   reload: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setReload: () => {},
 });
 

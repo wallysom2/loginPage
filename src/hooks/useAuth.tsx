@@ -16,8 +16,7 @@ export const useAuth = () => {
       setAuthToken(tokens.access);
       console.log('authToken:', tokens.access);
     } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao fazer login. Por favor, tente novamente.');
+      setErrorMessage('Erro ao fazer login. Dados inválidos.');
     }
   };
 
@@ -28,6 +27,7 @@ export const useAuth = () => {
     setPassword,
     handleLogin,
     errorMessage,
+    setErrorMessage,
     authToken,
   };
 };

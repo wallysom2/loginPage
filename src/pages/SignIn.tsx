@@ -1,4 +1,3 @@
-// pages/Login.tsx
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -15,12 +14,19 @@ const Login = () => {
     setPassword,
     handleLogin,
     errorMessage,
+    setErrorMessage,
     authToken,
   } = useAuth();
   const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await handleLogin();
+
+    if (!email || !password) {
+      setErrorMessage('*Preencha todos os campos');
+    } else {
+      await handleLogin();
+    }
   };
 
   useEffect(() => {
@@ -32,7 +38,7 @@ const Login = () => {
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center">
       <div
-        className="flex h-[534px] w-[438px] flex-col items-center rounded-[18px] p-12"
+        className="flex h-[550px] w-[438px] flex-col items-center rounded-[18px] p-12"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
       >
         <img
@@ -46,7 +52,7 @@ const Login = () => {
         >
           <label
             htmlFor="email"
-            className="font-nunito text-left text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
+            className="text-left font-nunito text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
           >
             Email
           </label>
@@ -58,7 +64,7 @@ const Login = () => {
           />
           <label
             htmlFor="password"
-            className="font-nunito text-left text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
+            className="text-left font-nunito text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
           >
             Password
           </label>
@@ -69,7 +75,9 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <CustomButton label="Sign In"></CustomButton>
-          {errorMessage && <p>{errorMessage}</p>}
+          {errorMessage && (
+            <p className="pt-3 text-red-500">{errorMessage}</p>
+          )}{' '}
         </form>
       </div>
     </div>
