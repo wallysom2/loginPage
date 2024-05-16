@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CustomButton from '@/components/Button';
 import perfil from '../assets/images/perfil.svg';
+import ProfileDetail from '../components/ProfileDetail';
 
 interface Avatar {
   id: number;
@@ -52,47 +53,37 @@ function Profile() {
 
   if (!profile) {
     console.log('Profile is not loaded yet...:', profile);
-    return <div>Loading. </div>;
+    navigate('/');
+    return null;
   }
 
   console.log('Rendering profile...');
 
   return (
-    <div className="bg-grayy">
+    <div className="min-h-screen bg-grayy">
       <div className="flex h-16 items-center justify-end bg-white">
         <div className="mr-7">
-          <CustomButton label="Logout" onClick={handleLogout}></CustomButton>
+          <CustomButton
+            label="Logout"
+            style={{ width: '272px', height: '44px' }}
+            onClick={handleLogout}
+          ></CustomButton>
         </div>
       </div>
-      <div className="flex min-h-full min-w-full items-start justify-center bg-grayy bg-red-200 p-20">
-        <div
-          className="flex h-[315px] w-[356px] flex-col flex-col items-center rounded-[18px] bg-blue-200 bg-white p-8"
-          style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
-        >
-          <h3>Profile Picture</h3>
-          <img
-            className="mb-3 mt-3 h-16 w-16 rounded-full"
-            src={profile.avatar ? profile.avatar.image_high_url : perfil}
-            alt="Avatar"
-          />
-          <div className="w-full">
-            <p className="flex justify-start pb-1">
-              Your<strong> Name </strong>
-            </p>
-          </div>
-
-          <div className="flex h-11 w-[296px] flex-col justify-center rounded-[8px] bg-gray-200 p-5">
-            {profile.name}
-          </div>
-          <div className="w-full">
-            <h3 className="flex justify-start pb-1 pt-2">
-              Your <strong>Email</strong>
-            </h3>
-          </div>
-          <div className="flex h-11 w-[296px] flex-col justify-center rounded-[8px] bg-gray-200 p-5">
-            {profile.email}
-          </div>
-        </div>
+      <div
+        className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] bg-blue-200 p-20"
+        style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.1)' }}
+      >
+        <h3 className="pt-4 text-left font-nunito text-xs font-semibold leading-3 text-[#2F2F2F]">
+          Profile Picture
+        </h3>{' '}
+        <img
+          className="mb-3 mt-3 h-[56px] w-[58px] rounded-[8px]"
+          src={profile.avatar ? profile.avatar.image_high_url : perfil}
+          alt="Avatar"
+        />
+        <ProfileDetail label="Name" value={profile.name} />
+        <ProfileDetail label="Email" value={profile.email} />
       </div>
     </div>
   );
