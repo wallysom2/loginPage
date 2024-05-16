@@ -1,18 +1,33 @@
 // pages/Login.tsx
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 import { useAuth } from '../hooks/useAuth';
 import { Input } from '../components/Input';
 import b2bitLogo from '../assets/images/b2bit-logo.svg';
+import CustomButton from '../components/Button';
 
 const Login = () => {
-  const { email, setEmail, password, setPassword, handleLogin } = useAuth();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleLogin,
+    errorMessage,
+    authToken,
+  } = useAuth();
   const navigate = useNavigate();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await handleLogin();
-    navigate('/profile');
   };
+
+  useEffect(() => {
+    if (authToken) {
+      navigate('/profile');
+    }
+  }, [authToken, navigate]);
 
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center">
@@ -53,12 +68,8 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button
-            type="submit"
-            className="focus:shadow-outline font-nunito h-[54px] w-[345.88px] rounded-[9px] bg-[rgba(2,39,79,1)] text-center text-[18px] font-semibold text-[rgba(250,250,250,1)] transition duration-300 ease-out hover:bg-blue-700 focus:outline-none"
-          >
-            Sign In
-          </button>
+          <CustomButton label="Sign In"></CustomButton>
+          {errorMessage && <p>{errorMessage}</p>}
         </form>
       </div>
     </div>

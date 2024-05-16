@@ -1,17 +1,16 @@
 // contexts/AuthContext.tsx
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { ReactNode } from 'react';
 import { loginService } from '../services/authService';
 
-
-
 interface AuthContextType {
   authToken: string | null;
+  errorMessage: string;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
-interface AuthProviderProps { 
+interface AuthProviderProps {
   children: ReactNode;
 }
 
@@ -19,13 +18,18 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const authToken = localStorage.getItem('authToken');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  console.log('authToken:', authToken);
 
   const login = async (email: string, password: string) => {
     try {
       const tokens = await loginService(email, password);
       localStorage.setItem('authToken', tokens.access);
+      console.log('authToken:', tokens.access);
     } catch (error) {
       console.error('Erro ao fazer login:', error);
+      setErrorMessage('Erro ao fazer login. Por favor, tente novamente.');
     }
   };
 
@@ -34,7 +38,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return (
-    <AuthContext.Provider value={{ authToken, login, logout }}>
+    <AuthContext.Provider value={{ authToken, errorMessage, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
