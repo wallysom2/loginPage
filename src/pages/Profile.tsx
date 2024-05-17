@@ -19,11 +19,14 @@ function Profile() {
     return null;
   }
 
-  console.log('Rendering profile...');
-
-  const userItem = localStorage.getItem('user');
-  const user = userItem ? JSON.parse(userItem) : null;
-  console.log('User:', user);
+  let imageUrl;
+  if (window.innerWidth > 800) {
+    imageUrl = profile.avatar.image_high_url;
+  } else if (window.innerWidth > 400) {
+    imageUrl = profile.avatar.image_medium_url;
+  } else {
+    imageUrl = profile.avatar.image_low_url;
+  }
 
   return (
     <div className="min-h-screen bg-grayy">
@@ -45,7 +48,7 @@ function Profile() {
         </h3>{' '}
         <img
           className="mb-3 mt-3 h-[56px] w-[58px] rounded-[8px]"
-          src={profile.avatar ? profile.avatar.image_high_url : perfil}
+          src={imageUrl ? imageUrl : perfil}
           alt="Avatar"
         />
         <ProfileDetail label="Name" value={profile.name} />
