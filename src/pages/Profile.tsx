@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '@/components/Button';
+import CustomButton from '../components/Button';
 import perfil from '../assets/images/perfil.svg';
 import ProfileDetail from '../components/ProfileDetail';
 import { useProfile } from '../hooks/useProfile';

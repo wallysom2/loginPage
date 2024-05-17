@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '@/components/Button';
+import CustomButton from '../components/Button';
 import perfil from '../assets/images/perfil.svg';
 import ProfileDetail from '../components/ProfileDetail';
 import { useLocation } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 function Gprofile() {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = location.state.user;
+  const user = location.state ? location.state.user : null;
   console.log('User:', user);
 
   const handleLogout = () => {

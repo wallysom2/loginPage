@@ -7,17 +7,17 @@ import { ReloadProvider } from './contexts/ReloadContext';
 
 const App = () => {
   return (
-      <AuthProvider>
-        <ReloadProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/gprofile" element={<Gprofile />} />
-            </Routes>
-          </BrowserRouter>
-        </ReloadProvider>
-      </AuthProvider>
+    <AuthProvider>
+      <ReloadProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/gprofile" element={<Gprofile />} />
+          </Routes>
+        </BrowserRouter>
+      </ReloadProvider>
+    </AuthProvider>
   );
 };
 
