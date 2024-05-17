@@ -21,6 +21,10 @@ function Profile() {
 
   console.log('Rendering profile...');
 
+  const userItem = localStorage.getItem('user');
+  const user = userItem ? JSON.parse(userItem) : null;
+  console.log('User:', user);
+
   return (
     <div className="min-h-screen bg-grayy">
       <div className="flex h-16 items-center justify-end bg-white">

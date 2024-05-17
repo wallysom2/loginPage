@@ -15,7 +15,7 @@ const GoogleButton = () => {
             if (credentialResponse.credential) {
               const decoded = jwtDecode(credentialResponse.credential);
               console.log(decoded);
-              navigate('/gprofile');
+              navigate('/profile');
             } else {
               console.log('Credential is undefined');
             }
