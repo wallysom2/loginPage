@@ -1,4 +1,3 @@
-// hooks/useAuth.tsx
 import { useState } from 'react';
 import { loginService } from '../services/authService';
 
@@ -7,6 +6,7 @@ export const useAuth = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [authToken, setAuthToken] = useState<string | null>(null);
+
 
   const handleLogin = async () => {
     setErrorMessage('');
