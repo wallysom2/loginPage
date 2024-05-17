@@ -7,7 +7,7 @@ const GoogleButton = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ paddingTop: '290px' }}>
+    <div style={{ marginTop: '280px' }}>
       <GoogleOAuthProvider clientId="1028449546448-ac2aoq1pa632ums868da2f702kp86ek1.apps.googleusercontent.com">
         <GoogleLogin
           onSuccess={(credentialResponse) => {
@@ -15,7 +15,7 @@ const GoogleButton = () => {
             if (credentialResponse.credential) {
               const decoded = jwtDecode(credentialResponse.credential);
               console.log(decoded);
-              navigate('/profile');
+              navigate('/gprofile', { state: { user: decoded } });
             } else {
               console.log('Credential is undefined');
             }
