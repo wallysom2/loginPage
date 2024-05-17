@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '@/components/Button';
 import perfil from '../assets/images/perfil.svg';
-import ProfileDetail from '../components/ProfileDetail';
+// import ProfileDetail from '../components/ProfileDetail';
 
 function Gprofile() {
   const navigate = useNavigate();
   const userItem = localStorage.getItem('user');
   const user = userItem ? JSON.parse(userItem) : null;
+  console.log('User:', user);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -42,8 +43,8 @@ function Gprofile() {
           src={user.imageUrl ? user.imageUrl : perfil}
           alt="Image profile"
         />
-        <ProfileDetail label="Name" value={user.name} />
-        <ProfileDetail label="Email" value={user.email} />
+        {/* <ProfileDetail label="Name" value={user.name} />
+        <ProfileDetail label="Email" value={user.email} /> */}
       </div>
     </div>
   );
