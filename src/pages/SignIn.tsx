@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-
 import { useAuth } from '../hooks/useAuth';
 import { Input } from '../components/Input';
 import b2bitLogo from '../assets/images/b2bit-logo.svg';
 import CustomButton from '../components/Button';
+import GoogleButton from '../components/GoogleButton';
 
 const Login = () => {
   const {
@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center">
       <div
-        className="flex h-[550px] w-[438px] flex-col items-center rounded-[18px] p-12"
+        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] p-12"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
       >
         <img
@@ -79,6 +79,7 @@ const Login = () => {
             <p className="pt-3 text-red-500">{errorMessage}</p>
           )}{' '}
         </form>
+        <GoogleButton />
       </div>
     </div>
   );

@@ -6,16 +6,16 @@ import { ReloadProvider } from './contexts/ReloadContext';
 
 const App = () => {
   return (
-    <AuthProvider>
-      <ReloadProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-        </BrowserRouter>
-      </ReloadProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <ReloadProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </BrowserRouter>
+        </ReloadProvider>
+      </AuthProvider>
   );
 };
 

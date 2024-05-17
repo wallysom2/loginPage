@@ -10,12 +10,15 @@
     "cypress:run": "cypress run"
   },
   "dependencies": {
+    "@react-oauth/google": "0.12.1",
+    "js-cookie": "3.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "1.5.0",
     "@types/axios": "0.14.0",
+    "@types/js-cookie": "3.0.6",
     "@types/jwt-decode": "3.1.0",
     "@types/node": "18.16.1",
     "@types/react": "18.2.0",
