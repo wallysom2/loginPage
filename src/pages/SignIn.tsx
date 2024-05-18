@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-gradiente">
-      <ButtonToggleTheme />
+      <ButtonToggleTheme className="absolute top-10" />
       {''}
       <div
         className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-white p-12"

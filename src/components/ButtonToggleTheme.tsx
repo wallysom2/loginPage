@@ -26,7 +26,7 @@ const ButtonToggleTheme: React.FC<ButtonToggleThemeProps> = ({ className }) => {
   return (
     <button
       onClick={handleClick}
-      className={`absolute left-10 top-0 m-2 w-[50px] rounded-[18px] bg-blue-100 p-3 opacity-60 shadow-outline ${className} `}
+      className={`absolute left-10 top-0 m-2 w-[50px] rounded-[18px] bg-blue-100 p-3 opacity-75 shadow-outline ${className} `}
     >
       <img src={darkMode ? light : dark} alt="theme icon" />
     </button>
