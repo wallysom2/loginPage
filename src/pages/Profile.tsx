@@ -40,7 +40,8 @@ function Profile() {
           ></CustomButton>
         </div>
       </div>
-      <ButtonToggleTheme />{''}
+      <ButtonToggleTheme />
+      {''}
       <div
         className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] p-20"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.1)' }}

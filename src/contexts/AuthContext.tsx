@@ -2,7 +2,6 @@
 import { createContext, useContext, useState } from 'react';
 import { ReactNode } from 'react';
 import { loginService } from '../services/authService';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 
 interface AuthContextType {
   authToken: string | null;
@@ -30,10 +29,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setErrorMessage('Error logging in. Invalid data.');
     }
   };
-
-  <GoogleOAuthProvider clientId="77257897780-4094murki6vb8uhdc5gss2q5d01hakph.apps.googleusercontent.com">
-    ...
-  </GoogleOAuthProvider>;
 
   const logout = () => {
     localStorage.removeItem('authToken');
