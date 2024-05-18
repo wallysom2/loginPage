@@ -7,21 +7,26 @@ const GoogleButton = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ marginTop: '280px' }}>
+    <div style={{ marginTop: '30px', width: '385.88px' }}>
       <GoogleOAuthProvider clientId="1028449546448-ac2aoq1pa632ums868da2f702kp86ek1.apps.googleusercontent.com">
         <GoogleLogin
+          theme="outline"
+          size="medium"
+          text="continue_with"
+          shape="circle"
+          logo_alignment="center"
+          width="385"
+          auto_select
           onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
             if (credentialResponse.credential) {
               const decoded = jwtDecode(credentialResponse.credential);
-              console.log(decoded);
-              navigate('/gprofile', { state: { user: decoded } });
+              navigate('/google-profile', { state: { user: decoded } });
             } else {
-              console.log('Credential is undefined');
+              console.error('Credential is undefined');
             }
           }}
           onError={() => {
-            console.log('Login Failed');
+            console.error('Login Failed');
           }}
         />
       </GoogleOAuthProvider>

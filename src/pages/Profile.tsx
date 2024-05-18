@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '../components/Button';
+import CustomButton from '../components/CustomButton';
 import perfil from '../assets/images/perfil.svg';
 import ProfileDetail from '../components/ProfileDetail';
 import { useProfile } from '../hooks/useProfile';
@@ -14,7 +14,7 @@ function Profile() {
   };
 
   if (!profile) {
-    console.log('Profile is not loaded yet...:', profile);
+    console.warn('Profile is not loaded yet...:', profile);
     navigate('/');
     return null;
   }

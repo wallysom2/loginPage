@@ -73,7 +73,7 @@ describe('useAuth hook', () => {
     fireEvent.click(screen.getByText('Login'));
 
     await waitFor(() => {
-      expect(screen.getByText('Erro ao fazer login. Dados inválidos.')).toBeInTheDocument();
+      expect(screen.getByText('Error logging in. Invalid data.')).toBeInTheDocument();
     });
   });
 });

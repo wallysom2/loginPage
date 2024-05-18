@@ -2,7 +2,7 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { describe, it, expect } from 'vitest';
-import Gprofile from './Gprofile';
+import GoogleProfile from './GoogleProfile';
 
 describe('Gprofile', () => {
   it('displays the user email', () => {
@@ -15,7 +15,7 @@ describe('Gprofile', () => {
           },
         ]}
       >
-        <Gprofile />
+        <GoogleProfile />
       </MemoryRouter>,
     );
     const userEmailElement = screen.getByText('test@example.com');
@@ -26,7 +26,7 @@ describe('Gprofile', () => {
     expect(() => {
       render(
         <MemoryRouter initialEntries={['/']}>
-          <Gprofile />
+          <GoogleProfile />
         </MemoryRouter>,
       );
     }).not.toThrow();
@@ -35,7 +35,7 @@ describe('Gprofile', () => {
   it('does not display the user name when user state is not provided', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
-        <Gprofile />
+        <GoogleProfile />
       </MemoryRouter>,
     );
     const userNameElement = screen.queryByText('Test User');

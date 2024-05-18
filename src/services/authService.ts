@@ -36,7 +36,5 @@ export const loginService = async (email: string, password: string) => {
       },
     },
   );
-  console.log(response.data);
-  console.log(response.data.tokens);
   return response.data.tokens;
 };

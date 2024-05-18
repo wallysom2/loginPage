@@ -8,15 +8,14 @@ export const useAuth = () => {
   const [authToken, setAuthToken] = useState<string | null>(null);
 
 
-  const handleLogin = async () => {
+  const handleLogin = async (email: string, password: string) => {
     setErrorMessage('');
     try {
       const tokens = await loginService(email, password);
       localStorage.setItem('authToken', tokens.access);
       setAuthToken(tokens.access);
-      console.log('authToken:', tokens.access);
     } catch (error) {
-      setErrorMessage('Erro ao fazer login. Dados inválidos.');
+      setErrorMessage('Error logging in. Invalid data.');
     }
   };
 

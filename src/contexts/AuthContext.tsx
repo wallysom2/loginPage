@@ -21,16 +21,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const authToken = localStorage.getItem('authToken');
   const [errorMessage, setErrorMessage] = useState('');
 
-  console.log('authToken:', authToken);
-
   const login = async (email: string, password: string) => {
     try {
       const tokens = await loginService(email, password);
       localStorage.setItem('authToken', tokens.access);
-      console.log('authToken:', tokens.access);
     } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      setErrorMessage('Erro ao fazer login. Por favor, tente novamente.');
+      console.error('Error logging in:', error);
+      setErrorMessage('Error logging in. Invalid data.');
     }
   };
 
