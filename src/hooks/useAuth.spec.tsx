@@ -1,20 +1,22 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { useState } from 'react';
 import { describe, it, expect, vi } from 'vitest';
 import { useAuth } from './useAuth';
 import { loginService } from '../services/authService';
 
 vi.mock('../services/authService');
 
-const MockComponent = () => {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    handleLogin,
-    errorMessage,
-    authToken,
-  } = useAuth();
+
+
+  const MockComponent = () => {
+    const { handleLogin, authToken, errorMessage } = useAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+
+  const handleClick = () => {
+    handleLogin(email, password);
+  };
 
   return (
     <div>
@@ -29,7 +31,7 @@ const MockComponent = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleClick}>Login</button>
       {authToken && <div>Logged in with token: {authToken}</div>}
       {errorMessage && <div>{errorMessage}</div>}
     </div>
