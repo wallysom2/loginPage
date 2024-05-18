@@ -32,7 +32,8 @@ function GoogleProfile() {
           ></CustomButton>
         </div>
       </div>
-      <ButtonToggleTheme className="absolute left-0 top-0 m-12" />{' '}
+      <ButtonToggleTheme />
+      {''}
       <div
         className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] p-20"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.1)' }}

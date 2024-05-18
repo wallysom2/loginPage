@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import light from '../assets/images/light.svg';
 import dark from '../assets/images/dark.svg';
 
@@ -7,18 +7,28 @@ type ButtonToggleThemeProps = {
 };
 
 const ButtonToggleTheme: React.FC<ButtonToggleThemeProps> = ({ className }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() =>
+    document.documentElement.classList.contains('dark'),
+  );
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
 
   const handleClick = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
   };
 
   return (
     <button
       onClick={handleClick}
-      className={`w-[50px] bg-blue-100 rounded-[18px] p-3 shadow-outline ${className}`}    >
-      <img src={darkMode ? dark : light} alt="theme icon" />
+      className={`absolute left-10 top-0 m-2 w-[50px] rounded-[18px] bg-blue-100 p-3 opacity-60 shadow-outline ${className} `}
+    >
+      <img src={darkMode ? light : dark} alt="theme icon" />
     </button>
   );
 };

@@ -39,7 +39,8 @@ const Login = () => {
 
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-gradiente">
-      <ButtonToggleTheme className="absolute left-0 top-0 m-12" />{' '}
+      <ButtonToggleTheme />
+      {''}
       <div
         className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-white p-12"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
@@ -62,5 +63,3 @@ const Login = () => {
 };
 
 export default Login;
-
-//<html lang="en" class="dark">

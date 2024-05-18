@@ -5,10 +5,13 @@ import { jwtDecode } from 'jwt-decode';
 
 const GoogleButton = () => {
   const navigate = useNavigate();
+  console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
   return (
     <div style={{ marginTop: '30px', width: '385.88px' }}>
-      <GoogleOAuthProvider clientId="1028449546448-ac2aoq1pa632ums868da2f702kp86ek1.apps.googleusercontent.com">
+      <GoogleOAuthProvider
+        clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}
+      >
         <GoogleLogin
           theme="outline"
           size="medium"
