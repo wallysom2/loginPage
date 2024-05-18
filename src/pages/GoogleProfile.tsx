@@ -1,14 +1,29 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CustomButton from '../components/ButtonCustom';
 import perfil from '../assets/images/perfil.svg';
 import ProfileDetail from '../components/ProfileDetail';
-import { useLocation } from 'react-router-dom';
 import ButtonToggleTheme from '../components/ButtonToggleTheme';
+
+interface User {
+  picture: string;
+  name: string;
+  email: string;
+}
 
 function GoogleProfile() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const user = location.state ? location.state.user : null;
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      console.warn('User is not logged in');
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -16,8 +31,6 @@ function GoogleProfile() {
   };
 
   if (!user) {
-    console.warn('User is not logged in');
-    navigate('/');
     return null;
   }
 

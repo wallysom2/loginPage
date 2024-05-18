@@ -5,7 +5,6 @@ import { jwtDecode } from 'jwt-decode';
 
 const GoogleButton = () => {
   const navigate = useNavigate();
-  console.log(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
   return (
     <div style={{ marginTop: '30px', width: '385.88px' }}>
@@ -23,6 +22,8 @@ const GoogleButton = () => {
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {
               const decoded = jwtDecode(credentialResponse.credential);
+              localStorage.setItem('user', JSON.stringify(decoded));
+              localStorage.setItem('token', credentialResponse.credential);
               navigate('/google-profile', { state: { user: decoded } });
             } else {
               console.error('Credential is undefined');

@@ -1,12 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { loginService } from '../services/authService';
 
 export const useAuth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [authToken, setAuthToken] = useState<string | null>(null);
-
+  const [authToken, setAuthToken] = useState<string | null>(() => localStorage.getItem('authToken'));
 
   const handleLogin = async (email: string, password: string) => {
     setErrorMessage('');
@@ -19,12 +18,25 @@ export const useAuth = () => {
     }
   };
 
+  const handleLogout = () => {
+    setAuthToken(null);
+    localStorage.removeItem('authToken');
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      setAuthToken(token);
+    }
+  }, []);
+
   return {
     email,
     setEmail,
     password,
     setPassword,
     handleLogin,
+    handleLogout,
     errorMessage,
     setErrorMessage,
     authToken,
