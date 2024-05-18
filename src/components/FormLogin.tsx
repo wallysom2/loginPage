@@ -1,6 +1,6 @@
 import { Formik, Form } from 'formik';
-import CustomButton from './CustomButton';
-import { CustomField } from './CustomField';
+import CustomButton from './ButtonCustom';
+import { CustomField } from './FieldCustom';
 
 interface LoginFormProps {
   initialValues: { email: string; password: string };

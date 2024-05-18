@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '../components/CustomButton';
+import CustomButton from '../components/ButtonCustom';
 import perfil from '../assets/images/perfil.svg';
 import ProfileDetail from '../components/ProfileDetail';
 import { useLocation } from 'react-router-dom';
+import ButtonToggleTheme from '../components/ButtonToggleTheme';
 
 function GoogleProfile() {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function GoogleProfile() {
   }
 
   return (
-    <div className="min-h-screen bg-grayy">
+    <div className="min-h-screen bg-bgprofile dark:bg-gradiente">
       <div className="flex h-16 items-center justify-end bg-white">
         <div className="mr-7">
           <CustomButton
@@ -31,6 +32,7 @@ function GoogleProfile() {
           ></CustomButton>
         </div>
       </div>
+      <ButtonToggleTheme className="absolute left-0 top-0 m-12" />{' '}
       <div
         className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] p-20"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.1)' }}

@@ -2,9 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import b2bitLogo from '../assets/images/b2bit-logo.svg';
-import GoogleButton from '../components/GoogleButton';
+import GoogleButton from '../components/ButtonGoogle';
 import * as Yup from 'yup';
-import { LoginForm } from '../components/LoginForm';
+import { LoginForm } from '../components/FormLogin';
+import ButtonToggleTheme from '../components/ButtonToggleTheme';
 
 const Login = () => {
   const { handleLogin, errorMessage, authToken } = useAuth();
@@ -37,9 +38,10 @@ const Login = () => {
   }, [authToken, navigate]);
 
   return (
-    <div className="flex min-h-screen min-w-full items-center justify-center">
+    <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-gradiente">
+      <ButtonToggleTheme className="absolute left-0 top-0 m-12" />{' '}
       <div
-        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] p-12"
+        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-white p-12"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
       >
         <img
@@ -60,3 +62,5 @@ const Login = () => {
 };
 
 export default Login;
+
+//<html lang="en" class="dark">
