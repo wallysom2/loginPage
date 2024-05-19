@@ -1,9 +1,6 @@
 import { defineConfig } from 'vite';
 import eslintPlugin from '@nabla/vite-plugin-eslint';
 import react from '@vitejs/plugin-react-swc';
-import dns from 'dns';
-
-dns.setDefaultResultOrder('verbatim');
 
 export default defineConfig({
   server: {
@@ -12,12 +9,8 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      plugins: [],
-      input: {
-        main: '/path/to/main.tsx',
-      },
+      plugins: []
     },
   },
   plugins: [react(), eslintPlugin()],
-  resolve: {},
 });
