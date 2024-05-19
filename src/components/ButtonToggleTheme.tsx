@@ -12,7 +12,7 @@ const ButtonToggleTheme: React.FC<ButtonToggleThemeProps> = ({ className }) => {
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    return document.documentElement.classList.contains('dark');
+    return false;
   });
 
   useEffect(() => {
