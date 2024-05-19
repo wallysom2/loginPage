@@ -5,7 +5,9 @@ export const useAuth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [authToken, setAuthToken] = useState<string | null>(() => localStorage.getItem('authToken'));
+  const [authToken, setAuthToken] = useState<string | null>(() =>
+    localStorage.getItem('authToken'),
+  );
 
   const handleLogin = async (email: string, password: string) => {
     setErrorMessage('');
