@@ -1,13 +1,11 @@
-import { FC, ButtonHTMLAttributes } from 'react';
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-}
+// CustomButton.tsx
+import { FC } from 'react';
+import { ButtonProps } from '@/types/userTypes';
 
 const CustomButton: FC<ButtonProps> = ({ label, ...props }) => (
   <button
     type="submit"
-    className="mt-2 h-[54px] w-[385.88px] rounded-[9px] bg-[rgba(2,39,79,1)] text-center font-nunito text-[18px] font-semibold text-[rgba(250,250,250,1)] transition duration-300 ease-out hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+    className="mb-2 me-2 mt-2 h-[54px] w-[385.88px] rounded-[9px] bg-[rgba(2,39,79,1)] px-5 py-2.5 text-center font-nunito text-[18px] text-sm font-semibold text-white transition duration-300 ease-out hover:bg-blue-700 focus:ring-yellow-300 dark:bg-yellow-400 dark:hover:bg-yellow-500 dark:focus:ring-yellow-900 dark:text-black"
     {...props}
   >
     {label}

@@ -1,15 +1,19 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useAuth } from '../hooks/useAuth';
-import b2bitLogo from '../assets/images/b2bit-logo.svg';
-import GoogleButton from '../components/ButtonGoogle';
 import * as Yup from 'yup';
-import { LoginForm } from '../components/FormLogin';
-import ButtonToggleTheme from '../components/ButtonToggleTheme';
+
+import { useAuth } from '@/hooks/useAuth';
+import { useTheme } from '@/contexts/ThemeContext';
+import { LoginForm } from '@/components/FormLogin';
+import GoogleButton from '@/components/ButtonGoogle';
+import ButtonToggleTheme from '@/components/ButtonToggleTheme';
+import b2bitLogo from '@images/b2bit-logo.svg';
+import b2bitLogoWhite from '@images/b2bit-logo-light.svg';
 
 const Login = () => {
   const { handleLogin, errorMessage, authToken } = useAuth();
   const navigate = useNavigate();
+  const { darkMode } = useTheme();
 
   const initialValues = {
     email: '',
@@ -30,6 +34,10 @@ const Login = () => {
       await handleLogin(values.email, values.password);
     }
   };
+  const [logo, setLogo] = useState(b2bitLogo);
+  useEffect(() => {
+    setLogo(darkMode ? b2bitLogoWhite : b2bitLogo);
+  }, [darkMode]);
 
   useEffect(() => {
     if (authToken) {
@@ -38,15 +46,15 @@ const Login = () => {
   }, [authToken, navigate]);
 
   return (
-    <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-gradiente">
+    <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-bgdarkcard">
       <ButtonToggleTheme className="absolute top-10" />
       {''}
       <div
-        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-white p-12"
+        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-[#ffffff] p-12 dark:bg-gradiente"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
       >
         <img
-          src={b2bitLogo}
+          src={logo}
           alt="B2Bit Logo"
           className="md-6 relative mb-8 h-[94.81px] w-[309.6px]"
         />

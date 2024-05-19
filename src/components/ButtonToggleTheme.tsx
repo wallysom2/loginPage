@@ -1,40 +1,21 @@
-import { useState, useEffect } from 'react';
-import light from '../assets/images/light.svg';
-import dark from '../assets/images/dark.svg';
+// ButtonToggleTheme.tsx
+import { useTheme } from '@/contexts/ThemeContext';
+import lightIcon from '@images/icon-light-theme.svg';
+import darkIcon from '@images/icon-dark-theme.svg';
 
 type ButtonToggleThemeProps = {
   className?: string;
 };
 
 const ButtonToggleTheme: React.FC<ButtonToggleThemeProps> = ({ className }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
-
-  const handleClick = () => {
-    setDarkMode(!darkMode);
-  };
+  const { darkMode, toggleTheme } = useTheme();
 
   return (
     <button
-      onClick={handleClick}
+      onClick={toggleTheme}
       className={`absolute left-10 top-0 m-2 w-[50px] rounded-[18px] bg-blue-100 p-3 opacity-75 shadow-outline ${className} `}
     >
-      <img src={darkMode ? light : dark} alt="theme icon" />
+      <img src={darkMode ? lightIcon : darkIcon} alt="theme icon" />
     </button>
   );
 };

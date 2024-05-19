@@ -1,13 +1,7 @@
 import { Formik, Form } from 'formik';
 import CustomButton from './ButtonCustom';
 import { CustomField } from './FieldCustom';
-
-interface LoginFormProps {
-  initialValues: { email: string; password: string };
-  validationSchema: any;
-  onSubmit: (values: { email: string; password: string }) => void;
-  errorMessage: string;
-}
+import { LoginFormProps } from '@/types/userTypes';
 
 export const LoginForm: React.FC<LoginFormProps> = ({
   initialValues,

@@ -1,14 +1,5 @@
 import { Field, ErrorMessage } from 'formik';
-
-interface CustomFieldProps {
-  type: string;
-  id: string;
-  name: string;
-  placeholder: string;
-  label: string;
-  errors: any;
-  touched: any;
-}
+import { CustomFieldProps } from '../types/userTypes';
 
 export const CustomField: React.FC<CustomFieldProps> = ({
   type,
@@ -22,7 +13,7 @@ export const CustomField: React.FC<CustomFieldProps> = ({
   <>
     <label
       htmlFor={id}
-      className="text-left font-nunito text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626]"
+      className="text-left font-nunito text-lg font-semibold leading-[22.5px] tracking-[0.03em] text-[#262626] dark:text-[#F4F4F4]"
     >
       {label}
     </label>

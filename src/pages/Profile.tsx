@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import CustomButton from '../components/ButtonCustom';
-import perfil from '../assets/images/perfil.svg';
-import ProfileDetail from '../components/ProfileDetail';
-import { useProfile } from '../hooks/useProfile';
-import ButtonToggleTheme from '../components/ButtonToggleTheme';
+
+import { useProfile } from '@/hooks/useProfile';
+import CustomButton from '@/components/ButtonCustom';
+import ProfileDetail from '@/components/ProfileDetail';
+import ButtonToggleTheme from '@/components/ButtonToggleTheme';
+import perfil from '@images/perfil.svg';
 
 function Profile() {
   const navigate = useNavigate();
@@ -30,8 +31,8 @@ function Profile() {
   }
 
   return (
-    <div className="min-h-screen bg-bgprofile dark:bg-gradiente">
-      <div className="flex h-16 items-center justify-end bg-white">
+    <div className="min-h-screen bg-bgprofile dark:bg-bgdarkcard">
+      <div className="flex h-16 items-center justify-end bg-white dark:bg-gradiente">
         <div className="mr-7">
           <CustomButton
             label="Logout"
@@ -43,10 +44,10 @@ function Profile() {
       <ButtonToggleTheme />
       {''}
       <div
-        className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] p-20"
+        className="mx-auto mt-24 flex h-[315px] w-[356px] flex-col items-start items-center justify-center rounded-[18px] bg-[#FDFDFD] dark:bg-gradiente p-20"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.1)' }}
       >
-        <h3 className="pt-4 text-left font-nunito text-xs font-semibold leading-3 text-[#2F2F2F]">
+        <h3 className="pt-4 text-left font-nunito text-xs font-semibold leading-3 text-[#2F2F2F] dark:text-white">
           Profile Picture
         </h3>{' '}
         <img

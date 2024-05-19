@@ -1,6 +1,6 @@
 const ProfileDetail = ({ label, value }: { label: string; value: string }) => (
   <div className="flex flex-col items-start">
-    <div className="w-full">
+    <div className="w-full dark:text-white">
       <p className="pb-2 pt-5 text-left font-nunito text-sm font-normal leading-3">
         Your <strong className="font-semibold">{` ${label} `}</strong>
       </p>

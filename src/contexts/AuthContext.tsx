@@ -1,18 +1,6 @@
-// contexts/AuthContext.tsx
 import { createContext, useContext, useState } from 'react';
-import { ReactNode } from 'react';
-import { loginService } from '../services/authService';
-
-interface AuthContextType {
-  authToken: string | null;
-  errorMessage: string;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-}
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
+import { loginService } from '@/services/authService';
+import { AuthContextType, AuthProviderProps } from '@/types/userTypes';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
