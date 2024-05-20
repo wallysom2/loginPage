@@ -45,6 +45,9 @@ Follow these steps to set up and run the B2Bit Login Page application:
 
 
 **1. Clone the Repository:**
+```sh
+npm install npm@latest -g
+```
 
 ```sh
 git clone https://github.com/wallysom2/loginPage.git
@@ -70,6 +73,14 @@ To start using the project, just follow the steps that were presented along the 
 ```sh
 npm run dev
 ```
+
+IMPORTANT: 
+
+✅ Use: http://localhost:3000
+
+❌ Don't use http://127.0.0.1:/*
+
+Google and Facebook OAuth providers were configured to only accept "localhost" as the redirect URI
 
 ## 🧪 Testing
 This project uses Cypress for end-to-end testing and Vitest for unit testing. To run tests, use:
