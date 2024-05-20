@@ -6,6 +6,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { useTheme } from '@/contexts/ThemeContext';
 import { LoginForm } from '@/components/FormLogin';
 import GoogleButton from '@/components/ButtonGoogle';
+import FacebookButton from '@/components/ButtonFacebook';
 import ButtonToggleTheme from '@/components/ButtonToggleTheme';
 import b2bitLogo from '@images/b2bit-logo.svg';
 import b2bitLogoWhite from '@images/b2bit-logo-light.svg';
@@ -50,7 +51,7 @@ const Login = () => {
       <ButtonToggleTheme className="absolute top-10" />
       {''}
       <div
-        className="flex h-[620px] w-[438px] flex-col items-center rounded-[18px] bg-[#ffffff] p-12 dark:bg-gradiente"
+        className="flex h-[620px] w-[438px] flex-col items-center justify-items-center rounded-[18px] bg-[#ffffff] p-12 dark:bg-gradiente"
         style={{ boxShadow: '0px 0px 64px 0px rgba(0, 0, 0, 0.25)' }}
       >
         <img
@@ -64,7 +65,10 @@ const Login = () => {
           onSubmit={onSubmit}
           errorMessage={errorMessage}
         />
-        <GoogleButton />
+        <div className="ml-[-8px] mt-[-10px] flex w-[385px] items-stretch justify-between self-auto">
+          <GoogleButton />
+          <FacebookButton />
+        </div>
       </div>
     </div>
   );

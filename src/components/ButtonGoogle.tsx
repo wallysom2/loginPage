@@ -7,17 +7,20 @@ const GoogleButton = () => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ marginTop: '30px', width: '385.88px' }}>
+    <div style={{ marginTop: '30px' }}>
       <GoogleOAuthProvider
-        clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}
+        clientId={
+          import.meta.env.VITE_GOOGLE_CLIENT_ID ||
+          '1028449546448-ac2aoq1pa632ums868da2f702kp86ek1.apps.googleusercontent.com'
+        }
       >
         <GoogleLogin
+          type="standard"
           theme="outline"
-          size="medium"
-          text="continue_with"
-          shape="circle"
-          logo_alignment="center"
-          width="385"
+          size="large"
+          width="187px"
+          text="signin"
+          shape="square"
           auto_select
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {
