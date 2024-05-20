@@ -18,6 +18,10 @@ The B2Bit Login Page application comprises several essential components:
 
 The application's routing structure is designed for intuitive navigation:
 
+![tela](https://github.com/wallysom2/loginPage/assets/37665843/f7663970-363a-4230-934b-92142edf464e)
+
+### Routes
+
 - `/`: The root route leads to the login page.
 - `/profile`: This route leads to the user's profile page.
 - `/google-profile`: This route leads to the user's Google profile page.
