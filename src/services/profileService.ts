@@ -1,15 +1,11 @@
-import axios from 'axios';
+import axiosInstance from '@/config/axiosConfig';
 
 export const getProfile = async () => {
-  const response = await axios.get(
-    'https://api.homologation.cliqdrive.com.br/auth/profile/',
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('authToken')}`,
-        Accept: 'application/json;version=v1_web',
-        'Content-Type': 'application/json',
-      },
-    },
-  );
-  return response.data;
+  try {
+    const response = await axiosInstance.get('auth/profile/');
+    return response.data;
+  } catch (error) {
+    console.error('Erro ao buscar o perfil do usuário:', error);
+    throw error;
+  }
 };

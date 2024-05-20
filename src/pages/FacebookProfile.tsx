@@ -29,6 +29,16 @@ function FacebookProfile() {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    } else {
+      console.warn('User is not logged in');
+      navigate('/');
+    }
+  }, [navigate]);
+
+  useEffect(() => {
     FacebookLoginClient.getLoginStatus((res) => {
       console.log(res.status);
       if (res.status === 'connected') {
@@ -44,6 +54,7 @@ function FacebookProfile() {
                   picture: profile.picture.data.url,
                 };
                 localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('authType', 'facebook');
                 setUser(user);
                 navigate('/facebook-profile');
               }
@@ -82,6 +93,7 @@ function FacebookProfile() {
       console.log('logout completed!');
     });
     localStorage.removeItem('user');
+    localStorage.removeItem('authType');
     navigate('/');
   };
 

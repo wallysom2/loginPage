@@ -26,6 +26,7 @@ const GoogleButton = () => {
             if (credentialResponse.credential) {
               const decoded = jwtDecode(credentialResponse.credential);
               localStorage.setItem('user', JSON.stringify(decoded));
+              localStorage.setItem('authType', 'google');
               localStorage.setItem('token', credentialResponse.credential);
               navigate('/google-profile', { state: { user: decoded } });
             } else {

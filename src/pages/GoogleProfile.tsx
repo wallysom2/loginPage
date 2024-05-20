@@ -28,6 +28,7 @@ function GoogleProfile() {
 
   const handleLogout = () => {
     localStorage.removeItem('user');
+    localStorage.removeItem('authType');
     navigate('/');
   };
 

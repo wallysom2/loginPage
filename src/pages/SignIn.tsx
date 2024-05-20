@@ -13,6 +13,7 @@ import b2bitLogoWhite from '@images/b2bit-logo-light.svg';
 
 const Login = () => {
   const { handleLogin, errorMessage, authToken } = useAuth();
+  const authType = localStorage.getItem('authType');
   const navigate = useNavigate();
   const { darkMode } = useTheme();
 
@@ -45,6 +46,16 @@ const Login = () => {
       navigate('/profile');
     }
   }, [authToken, navigate]);
+
+  useEffect(() => {
+    if (authType) {
+      if (authType == 'google') {
+        navigate('/google-profile');
+      } else if (authType == 'facebook') {
+        navigate('/facebook-profile');
+      }
+    }
+  }, [authType, navigate]);
 
   return (
     <div className="flex min-h-screen min-w-full items-center justify-center bg-whitegray dark:bg-bgdarkcard">

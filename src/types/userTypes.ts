@@ -33,4 +33,26 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export type { ButtonProps, CustomFieldProps, LoginFormProps, AuthContextType, AuthProviderProps };
+interface UserData {
+  id: number;
+  name: string;
+  email: string;
+  is_active: boolean;
+  avatar: string | null;
+  type: string;
+  created: string;
+  modified: string;
+  role: string;
+}
+
+interface TokensData {
+  refresh: string;
+  access: string;
+}
+
+interface ApiResponse {
+  user: UserData;
+  tokens: TokensData;
+}
+
+export type { ButtonProps, CustomFieldProps, LoginFormProps, AuthContextType, AuthProviderProps, UserData, TokensData, ApiResponse};
