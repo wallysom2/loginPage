@@ -1,10 +1,9 @@
 import { GoogleLogin } from '@react-oauth/google';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
+import { useGoogleAuth } from '@/hooks/useGoogleAuth';
 
 const GoogleButton = () => {
-  const navigate = useNavigate();
+  const { handleSuccess, handleError } = useGoogleAuth();
 
   return (
     <div style={{ marginTop: '30px' }}>
@@ -22,20 +21,8 @@ const GoogleButton = () => {
           text="signin"
           shape="square"
           auto_select
-          onSuccess={(credentialResponse) => {
-            if (credentialResponse.credential) {
-              const decoded = jwtDecode(credentialResponse.credential);
-              localStorage.setItem('user', JSON.stringify(decoded));
-              localStorage.setItem('authType', 'google');
-              localStorage.setItem('token', credentialResponse.credential);
-              navigate('/google-profile', { state: { user: decoded } });
-            } else {
-              console.error('Credential is undefined');
-            }
-          }}
-          onError={() => {
-            console.error('Login Failed');
-          }}
+          onSuccess={handleSuccess}
+          onError={handleError}
         />
       </GoogleOAuthProvider>
     </div>
