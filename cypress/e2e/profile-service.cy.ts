@@ -19,7 +19,6 @@ describe('getProfile', () => {
       // Extract the access token from the login response
       const authToken = loginResponse.body.tokens.access;
 
-      // Store the auth token in localStorage for subsequent requests
       localStorage.setItem('authToken', authToken);
 
       // Now, make a request to get the profile using the obtained auth token

@@ -36,7 +36,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         />
         <CustomButton type="submit" label="Sign In"></CustomButton>
         <div
-          className={`pt-1 text-center text-sm text-red-500 dark:text-white ${
+          className={`pt-1 text-center text-sm text-red-500 dark:text-white ${ 
             errorMessage ? 'visible' : 'invisible'
           }`}
         >
