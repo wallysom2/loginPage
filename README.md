@@ -32,9 +32,6 @@ The application's routing structure is designed for intuitive navigation:
 Before starting the project installation, it is essential that some prerequisites are met, and each of them are listed below.
 
   ```sh
-npm install npm@latest -g
-  ```
-  ```sh
 npm install cypress --save-dev
   ```
 
