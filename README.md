@@ -62,7 +62,8 @@ Follow these steps to set up and run the B2Bit Login Page application:
 VITE_GOOGLE_CLIENT_ID=
 VITE_FACEBOOK_CLIENT_ID=
 ```
-Get a free API Key at [https://example.com](https://example.com)
+<!-- Get a free API Key at [https://example.com](https://example.com)-->
+
 
 ### Usage
 To start using the project, just follow the steps that were presented along the Roadmap and:
