@@ -38,7 +38,7 @@ npm install npm@latest -g
 npm install cypress --save-dev
   ```
 
-Additionally, if you're a **Linux** user, be sure to visit the [Cypress Docs](https://docs.cypress.io/guides/getting-started/installing-cypress). This resource is essential for executing Cypress locally on your machine.
+Additionally, if you're a **Linux** user, be sure to visit the [Cypress Docs](https://docs.cypress.io/guides/getting-started/installing-cypress#Linux-Prerequisites). This resource is essential for executing Cypress locally on your machine.
 
 ## 🚀 Installation and Usage
 
