@@ -32,10 +32,10 @@ The application's routing structure is designed for intuitive navigation:
 Before starting the project installation, it is essential that some prerequisites are met, and each of them are listed below.
 
   ```sh
-  npm install npm@latest -g
+npm install npm@latest -g
   ```
   ```sh
-  npm install cypress --save-dev
+npm install cypress --save-dev
   ```
 
 Additionally, if you're a **Linux** user, be sure to visit the [Cypress Docs](https://docs.cypress.io/guides/getting-started/installing-cypress). This resource is essential for executing Cypress locally on your machine.
@@ -50,15 +50,15 @@ Follow these steps to set up and run the B2Bit Login Page application:
 **1. Clone the Repository:**
 
 ```sh
-    git clone https://github.com/wallysom2/loginPage.git
+git clone https://github.com/wallysom2/loginPage.git
 ```
 
 **2. Install NPM packages:**
 ```sh
-   npm install
+npm install
 ```
 **3. Configure your `.env` file:**
-   ```env
+```env
 VITE_GOOGLE_CLIENT_ID=
 VITE_FACEBOOK_CLIENT_ID=
 ```
@@ -77,10 +77,10 @@ This project uses Cypress for end-to-end testing and Vitest for unit testing. To
 **Cypress (E2E Tests)**
 
 ```sh
-    npm run cypress:web
+npm run cypress:web
 ```
 ```sh
-    npm run cypress:run
+npm run cypress:run
 ```
 
 **Vitest (Units Tests)**
@@ -88,15 +88,15 @@ This project uses Cypress for end-to-end testing and Vitest for unit testing. To
 
 
 ```sh
-    npm run test:vitest
+npm run test:vitest
 ```
 
 **Coverage and Run all tests**
 ```sh
-    npm run coverage
+npm run coverage
 ```
 ```sh
-    npm run test:all
+npm run test:all
 ```
 
 ## 📝 License
