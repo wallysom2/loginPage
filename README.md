@@ -58,6 +58,9 @@ git clone https://github.com/wallysom2/loginPage.git
 npm install
 ```
 **3. Configure your `.env` file:**
+
+(Temporário-b2bit): As chaves de acesso já estão no código. Não há necessidade de mudar o `.env`
+
 ```env
 VITE_GOOGLE_CLIENT_ID=
 VITE_FACEBOOK_CLIENT_ID=
