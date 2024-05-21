@@ -12,15 +12,14 @@ const FacebookButton = () => {
         fields="name,email,picture"
         data-size="small"
         className="mt-[-2px] h-10 w-[187px] cursor-pointer rounded border border-gray-300 bg-white pb-0.5 pl-4 text-[14px] font-semibold text-gray-600"
-        onSuccess={(response) => {
-          console.log('Login Success!', response);
+        onSuccess={() => {
           navigate('/facebook-profile');
         }}
-        onFail={(error) => {
-          console.log('Login Failed!', error);
+        onFail={() => {
+          navigate('/');
         }}
-        onProfileSuccess={(response) => {
-          console.log('Get Profile Success!', response);
+        onProfileSuccess={() => {
+          console.info(200);
         }}
       />
     </div>

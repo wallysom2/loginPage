@@ -21,7 +21,6 @@ export function GoogleProfile() {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     } else {
-      console.warn('User is not logged in');
       navigate('/');
     }
   }, [navigate]);

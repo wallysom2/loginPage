@@ -16,7 +16,6 @@ function Profile() {
   };
 
   if (!profile) {
-    console.warn('Profile is not loaded yet...:', profile);
     navigate('/');
     return null;
   }

@@ -28,14 +28,12 @@ export const useFacebookAuth = () => {
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     } else {
-      console.warn('User is not logged in');
       navigate('/');
     }
   }, [navigate]);
 
   useEffect(() => {
     FacebookLoginClient.getLoginStatus((res) => {
-      console.log(res.status);
       if (res.status === 'connected') {
         FacebookLoginClient.getProfile(
           (res: unknown) => {
@@ -62,7 +60,7 @@ export const useFacebookAuth = () => {
       } else {
         FacebookLoginClient.login(
           (res) => {
-            console.log(res);
+            console.info(res);
           },
           {
             scope: 'public_profile,email',
@@ -81,11 +79,11 @@ export const useFacebookAuth = () => {
         email: parsedUser.email,
       });
     }
-  }, []);
+  }, [navigate]);
 
   const handleLogout = () => {
     FacebookLoginClient.logout(() => {
-      console.log('logout completed!');
+      console.info('logout completed!');
     });
     localStorage.removeItem('user');
     localStorage.removeItem('authType');
