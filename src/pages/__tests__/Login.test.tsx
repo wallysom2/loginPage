@@ -15,7 +15,6 @@ vi.mock('@/contexts/ThemeContext', () => ({
 }));
 
 test('renders login form and elements correctly', async () => {
-  // Usando act para garantir que os efeitos colaterais sejam executados antes das asserções
   await act(async () => {
     render(
       <MemoryRouter>
@@ -24,7 +23,6 @@ test('renders login form and elements correctly', async () => {
     );
   });
 
-  // Certifica que os elementos básicos do formulário de login estão presentes
   expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
   expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /Sign In/i })).toBeInTheDocument();

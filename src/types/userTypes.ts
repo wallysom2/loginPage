@@ -19,12 +19,12 @@ interface LoginFormProps {
   initialValues: { email: string; password: string };
   validationSchema: any;
   onSubmit: (values: { email: string; password: string }) => void;
-  errorMessage?: string;
+  errorMessage?: string | null;
 }
 
 interface AuthContextType {
   authToken: string | null;
-  errorMessage: string;
+  errorMessage: string | null;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
 }
