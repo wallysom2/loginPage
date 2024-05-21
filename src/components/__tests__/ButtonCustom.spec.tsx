@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import CustomButton from './ButtonCustom';
+import CustomButton from '../ButtonCustom';
 
 describe('CustomButton', () => {
   it('deve renderizar com a label fornecida', () => {

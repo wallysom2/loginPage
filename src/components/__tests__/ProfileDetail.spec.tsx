@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, it, expect } from 'vitest';
-import ProfileDetail from './ProfileDetail';
+import ProfileDetail from '../ProfileDetail';
 
 describe('ProfileDetail', () => {
   it('deve renderizar o componente com os valores fornecidos', () => {
