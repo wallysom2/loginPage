@@ -41,6 +41,6 @@ export const useAuth = () => {
     handleLogout,
     errorMessage,
     setErrorMessage,
-    authToken
+    authToken,
   };
 };

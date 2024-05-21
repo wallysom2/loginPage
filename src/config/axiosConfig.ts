@@ -21,7 +21,7 @@ axiosInstance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 axiosInstance.interceptors.response.use(
@@ -33,7 +33,7 @@ axiosInstance.interceptors.response.use(
       console.error('Não autorizado, redirecionando para login...');
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosInstance;

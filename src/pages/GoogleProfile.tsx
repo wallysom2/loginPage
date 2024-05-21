@@ -12,7 +12,7 @@ interface User {
   email: string;
 }
 
-function GoogleProfile() {
+export function GoogleProfile() {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
 
