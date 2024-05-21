@@ -1,7 +1,7 @@
 // ButtonToggleTheme.tsx
 import { useTheme } from '@/contexts/ThemeContext';
-import lightIcon from '@images/icon-light-theme.svg';
-import darkIcon from '@images/icon-dark-theme.svg';
+import lightIcon from '@/assets/images/icon-light-theme.svg';
+import darkIcon from '@/assets/images/icon-dark-theme.svg';
 
 type ButtonToggleThemeProps = {
   className?: string;

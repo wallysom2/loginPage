@@ -24,13 +24,7 @@
     "forceConsistentCasingInFileNames": true,
 
     "paths": {
-      "@/*": ["./src/*"],
-      "@images/*": ["./src/assets/images/*"],
-      "@components/*": ["./src/components/*"],
-      "@context/*": ["./src/context/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@services/*": ["./src/services/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["./src"]

@@ -8,8 +8,8 @@ import { LoginForm } from '@/components/FormLogin';
 import GoogleButton from '@/components/ButtonGoogle';
 import FacebookButton from '@/components/ButtonFacebook';
 import ButtonToggleTheme from '@/components/ButtonToggleTheme';
-import b2bitLogo from '@images/b2bit-logo.svg';
-import b2bitLogoWhite from '@images/b2bit-logo-light.svg';
+import b2bitLogo from '@/assets/images/b2bit-logo.svg';
+import b2bitLogoWhite from '@/assets/images/b2bit-logo-light.svg';
 
 const Login = () => {
   const { handleLogin, errorMessage, authToken } = useAuth();

@@ -4,7 +4,7 @@ import { useProfile } from '@/hooks/useProfile';
 import CustomButton from '@/components/ButtonCustom';
 import ProfileDetail from '@/components/ProfileDetail';
 import ButtonToggleTheme from '@/components/ButtonToggleTheme';
-import perfil from '@images/perfil.jpg';
+import perfil from '@/assets/images/perfil.jpg';
 
 function Profile() {
   const navigate = useNavigate();

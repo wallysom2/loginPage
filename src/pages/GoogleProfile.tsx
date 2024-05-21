@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import perfil from '@images/perfil.jpg';
+import perfil from '@/assets/images/perfil.jpg';
 import CustomButton from '@/components/ButtonCustom';
 import ProfileDetail from '@/components/ProfileDetail';
 import ButtonToggleTheme from '@/components/ButtonToggleTheme';
