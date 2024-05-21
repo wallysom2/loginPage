@@ -1,30 +1,48 @@
-import { render, screen, act } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import Login from '../Login';
+import { render, screen } from '@testing-library/react';
+import Profile from '../Profile';
 
-vi.mock('@/hooks/useAuth', () => ({
-  useAuth: () => ({
-    handleLogin: vi.fn(),
-    errorMessage: null,
-    authToken: null,
+vi.mock('react-router-dom', () => ({
+  useNavigate: vi.fn(),
+}));
+
+vi.mock('@/hooks/useProfile', () => ({
+  useProfile: () => ({
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    avatar: {
+      image_high_url: 'high_quality_image_url',
+      image_medium_url: 'medium_quality_image_url',
+      image_low_url: 'low_quality_image_url',
+    },
   }),
 }));
 
-vi.mock('@/contexts/ThemeContext', () => ({
-  useTheme: () => ({ darkMode: false }),
-}));
+class LocalStorageMock {
+  private store: { [key: string]: string } = {};
 
-test('renders login form and elements correctly', async () => {
-  await act(async () => {
-    render(
-      <MemoryRouter>
-        <Login />
-      </MemoryRouter>,
-    );
-  });
+  getItem(key: string): string | null {
+    return this.store[key] || null;
+  }
 
-  expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
-  expect(screen.getByLabelText(/Password/i)).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: /Sign In/i })).toBeInTheDocument();
-  expect(screen.getByAltText(/B2Bit Logo/i)).toBeInTheDocument();
+  setItem(key: string, value: string): void {
+    this.store[key] = value;
+  }
+
+  removeItem(key: string): void {
+    delete this.store[key];
+  }
+
+  clear(): void {
+    this.store = {};
+  }
+}
+
+(global as any).localStorage = new LocalStorageMock();
+
+test('renders Profile correctly', () => {
+  render(<Profile />);
+
+  expect(screen.getByText('Logout')).toBeInTheDocument();
+  expect(screen.getByText('Name')).toBeInTheDocument();
+  expect(screen.getByText('Email')).toBeInTheDocument();
 });
