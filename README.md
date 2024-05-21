@@ -85,6 +85,8 @@ Google and Facebook OAuth providers were configured to only accept "localhost" a
 ## 🧪 Testing
 This project uses Cypress for end-to-end testing and Vitest for unit testing. To run tests, use:
 
+![chrome-capture-2024-5-20 (1)](https://github.com/wallysom2/loginPage/assets/37665843/aa7730ca-255c-4a51-938c-1c0529b4e5f1)
+
 **Cypress (E2E Tests)**
 
 ```sh
@@ -95,8 +97,6 @@ npm run cypress:run
 ```
 
 **Vitest (Units Tests)**
-
-
 
 ```sh
 npm run test:vitest
