@@ -8,7 +8,8 @@ test('should render the Facebook button', () => {
       <ButtonFacebook />
     </MemoryRouter>,
   );
-  const button = screen.getByRole('button');
+  const button = screen.getByTestId('facebook-button');
   expect(button).toBeInTheDocument();
   expect(button).toHaveTextContent('Facebook');
+  expect(button).toContainHTML('svg');
 });

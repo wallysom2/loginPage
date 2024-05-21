@@ -19,7 +19,7 @@ interface LoginFormProps {
   initialValues: { email: string; password: string };
   validationSchema: any;
   onSubmit: (values: { email: string; password: string }) => void;
-  errorMessage: string;
+  errorMessage?: string;
 }
 
 interface AuthContextType {
@@ -55,4 +55,13 @@ interface ApiResponse {
   tokens: TokensData;
 }
 
-export type { ButtonProps, CustomFieldProps, LoginFormProps, AuthContextType, AuthProviderProps, UserData, TokensData, ApiResponse};
+export type {
+  ButtonProps,
+  CustomFieldProps,
+  LoginFormProps,
+  AuthContextType,
+  AuthProviderProps,
+  UserData,
+  TokensData,
+  ApiResponse,
+};
